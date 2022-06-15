@@ -5,6 +5,19 @@ requisicao.responseType = 'json';
 requisicao.send();
 
 requisicao.onload = function() {
+  class ErroCustomizado extends Error{
+    constructor(mensagem, nome){
+      super(mensagem);
+      this.name = nome;
+    }
+  
+       mensagem(){
+         let mensagem = this.stack.split("\n")[1]
+         let titulo = mensagem.split(":")[1]
+         let linha = titulo.split(")")[0]
+         return this.name +":"+ this.message + "\n" + " Linha:" + linha;
+       }
+  }
   class Noticia{
     constructor (author, publishedAt, link, title){
       this.author = author;
@@ -26,8 +39,17 @@ requisicao.onload = function() {
       </div>
       </div>
       `
+
+      if(this.author &&  this.publishedAt && this.link && this.title &&  this.urlToImage && this.description == undefined) {
+        throw new ErroCustomizado(" Os parametros estão indefinidos!", "Alerta Erro");
+      } 
+      else {
+        return true;
+      }
+     
     }
-  }
+    }
+  
 
   class NoticiaDestaque extends Noticia{
     constructor(urlToImage, author, publishedAt, link, title, description){
@@ -48,9 +70,17 @@ requisicao.onload = function() {
       </div>
       </div>
       `
+      if(this.author &&  this.publishedAt && this.link && this.title &&  this.urlToImage && this.description == undefined) {
+        throw new ErroCustomizado(" Os parametros estão indefinidos!", "Alerta Erro");
+      }
+      else {
+        return true;
+      }
+     
     }
   }
 
+ 
   
   let noticias = requisicao.response;
   let noticia_destaque = new NoticiaDestaque(
