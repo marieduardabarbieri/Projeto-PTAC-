@@ -27,27 +27,24 @@ requisicao.onload = function() {
       }
  
     mostrarNoticia(){
-      return  `
-      <div class="alinhamentos">
-      <div class="alinhamento1">
-      <div class="alinhamento"> 
-      <p> ${this.author} </p>
-      <p> ${this.publishedAt} </p>
-      </div>
-      <a href="${this.link}">
-      <h2> ${this.title} </h2></a>
-      </div>
-      </div>
-      `
-
       if(this.author &&  this.publishedAt && this.link && this.title &&  this.urlToImage && this.description == undefined) {
         throw new ErroCustomizado(" Os parametros estão indefinidos!", "Alerta Erro");
       } 
+
       else {
-        return true;
+        return  ` 
+        <div class="alinhamentos">
+        <div class="alinhamento1">
+        <div class="alinhamento"> 
+        <p> ${this.author} </p>
+        <p> ${this.publishedAt} </p>
+        </div>
+        <a href="${this.link}">
+        <h2> ${this.title} </h2></a>
+        </div>
+        </div>`
       }
-     
-    }
+      }
     }
   
 
@@ -58,7 +55,11 @@ requisicao.onload = function() {
       this.description = description;
     }
      mostrarDestaques(){
-      return  `
+      if(this.author &&  this.publishedAt && this.link && this.title &&  this.urlToImage && this.description == undefined) {
+        throw new ErroCustomizado(" Os parametros estão indefinidos!", "Alerta Erro");
+      } 
+     else{
+       return  `
       <div class="alinhamentos">
       <div id="alinhamento2">
       <img id="img" src="${this.urlToImage}"><br/>
@@ -70,14 +71,7 @@ requisicao.onload = function() {
       </div>
       </div>
       `
-
-      
-      if(this.author &&  this.publishedAt && this.link && this.title &&  this.urlToImage && this.description == undefined) {
-        throw new ErroCustomizado("  Os parametros estão indefinidos!", "Alerta Erro");
-      }
-      else {
-        return true;
-      }
+    }
      
     }
   }
