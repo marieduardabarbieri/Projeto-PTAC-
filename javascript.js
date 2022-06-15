@@ -6,8 +6,7 @@ requisicao.send();
 
 requisicao.onload = function() {
   class Noticia{
-    constructor (name, author, publishedAt, link, title){
-      this.name = name;
+    constructor (author, publishedAt, link, title){
       this.author = author;
       this.publishedAt = publishedAt;
       this.link = link; 
@@ -19,7 +18,6 @@ requisicao.onload = function() {
       <div class="alinhamentos">
       <div class="alinhamento1">
       <div class="alinhamento">
-      <p> ${this.name} </p>
       <p> ${this.author} </p>
       <p> ${this.publishedAt} </p>
       </div>
@@ -55,7 +53,7 @@ requisicao.onload = function() {
 
   
   let noticias = requisicao.response;
-  let noticia_destaque = new NoticiaDestaque(noticias.articles[0].source.name,
+  let noticia_destaque = new NoticiaDestaque(
                                             noticias.articles[0].urlToImage,
                                             noticias.articles[0].author,
                                             noticias.articles[0].publishedAt,
@@ -72,7 +70,7 @@ requisicao.onload = function() {
   elemento.insertAdjacentHTML('afterbegin', noticia_destaque.mostrarDestaques());
 
   noticias.articles.forEach(noticia => {
-     let noticia_ = new Noticia(noticia.name,noticia.author, noticia.publishedAt, noticia.url, noticia.title, noticia.description);
+     let noticia_ = new Noticia(noticia.author, noticia.publishedAt, noticia.url, noticia.title, noticia.description);
      elemento.insertAdjacentHTML('beforeend', noticia_.mostrarNoticia());
   });
 }
