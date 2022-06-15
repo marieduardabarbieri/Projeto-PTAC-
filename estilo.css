@@ -33,9 +33,9 @@ a:hover{
 
 #alinhamento2{
   border-radius: 4px;
-  margin: 20px 20px;
-  padding: 3px 20px;
-  width: 58%;
+  margin: 20px;
+  padding: 3px 40px;
+  width: 45%;
   color: rgb(0, 0, 0);
   border: 1px solid rgb(199, 199, 199);
 }
@@ -46,19 +46,15 @@ a:hover{
   justify-content: center;
 }
 
-#img{
-  padding: 20px 0px 0px 10px;
-}
-
 #descricao{
   color: rgb(141, 141, 141);
 }
 
 .alinhamento1 {
-  width: 58%;
+  width: 45%;
   border-radius: 4px;
-  margin: 20px 20px;
-  padding: 3px 20px;
+  margin: 20px;
+  padding: 3px 40px;
   color: rgb(0, 0, 0);
   background-color: rgb(238, 246, 247);
   border: 1px solid rgb(199, 199, 199);

@@ -31,7 +31,7 @@ requisicao.onload = function() {
 
   class NoticiaDestaque extends Noticia{
     constructor(urlToImage, author, publishedAt, link, title, description){
-      super(name, author, publishedAt, link, title, description)
+      super(author, publishedAt, link, title, description)
       this.urlToImage = urlToImage;
       this.description = description;
     }
@@ -39,7 +39,7 @@ requisicao.onload = function() {
       return  `
       <div class="alinhamentos">
       <div id="alinhamento2">
-      <img id="img" src="${this.urlToImage}">
+      <img id="img" src="${this.urlToImage}"><br/>
       <p> ${this.author} </p>
       <p> ${this.publishedAt} </p>
       <a href="${this.link}">
