@@ -19,7 +19,7 @@ requisicao.onload = function() {
        }
   }
   class Noticia{
-    constructor (author, publishedAt, link, title){
+    constructor ( author, publishedAt, link, title){
       this.author = author;
       this.publishedAt = publishedAt;
       this.link = link; 
@@ -30,7 +30,7 @@ requisicao.onload = function() {
       return  `
       <div class="alinhamentos">
       <div class="alinhamento1">
-      <div class="alinhamento">
+      <div class="alinhamento"> 
       <p> ${this.author} </p>
       <p> ${this.publishedAt} </p>
       </div>
@@ -53,7 +53,7 @@ requisicao.onload = function() {
 
   class NoticiaDestaque extends Noticia{
     constructor(urlToImage, author, publishedAt, link, title, description){
-      super(author, publishedAt, link, title, description)
+      super( author, publishedAt, link, title, description)
       this.urlToImage = urlToImage;
       this.description = description;
     }
@@ -70,6 +70,8 @@ requisicao.onload = function() {
       </div>
       </div>
       `
+
+      
       if(this.author &&  this.publishedAt && this.link && this.title &&  this.urlToImage && this.description == undefined) {
         throw new ErroCustomizado("  Os parametros estão indefinidos!", "Alerta Erro");
       }
