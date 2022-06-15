@@ -71,7 +71,7 @@ requisicao.onload = function() {
       </div>
       `
       if(this.author &&  this.publishedAt && this.link && this.title &&  this.urlToImage && this.description == undefined) {
-        throw new ErroCustomizado(" Os parametros estão indefinidos!", "Alerta Erro");
+        throw new ErroCustomizado("  Os parametros estão indefinidos!", "Alerta Erro");
       }
       else {
         return true;
@@ -79,6 +79,7 @@ requisicao.onload = function() {
      
     }
   }
+  
 
  
   
